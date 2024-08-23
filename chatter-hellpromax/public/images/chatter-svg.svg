@@ -1,0 +1,12 @@
+<svg width="1500" height="500" xmlns="http://www.w3.org/2000/svg">
+ <g id="Layer_1">
+  <title>Layer 1</title>
+  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="24" id="svg_1" y="382" x="233" stroke-width="0" stroke="#000" fill="#000000"/>
+  <text transform="rotate(-5 393.234 222)" filter="url(#svg_3_blur)" font-weight="normal" font-style="italic" xml:space="preserve" text-anchor="start" font-family="'Montserrat Light'" font-size="170" id="svg_3" y="279" x="28" stroke-width="0" stroke="#000" fill="#000000">CHATTER</text>
+ </g>
+ <defs>
+  <filter id="svg_3_blur">
+   <feGaussianBlur stdDeviation="2" in="SourceGraphic"/>
+  </filter>
+ </defs>
+</svg>
