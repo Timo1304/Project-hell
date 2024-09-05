@@ -1,6 +1,9 @@
 import { authModalState } from '@/atoms/authModalAtom';
+import { auth } from '@/firebase/clientApp';
+import { FIREBASE_ERRORS } from '@/firebase/errors';
 import { Input, Button, Flex, Text } from '@chakra-ui/react';
 import React, { useState } from 'react';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useSetRecoilState } from 'recoil';
 
 type LoginProps = {
@@ -13,9 +16,20 @@ const Login:React.FC<LoginProps> = () => {
         email: '',
         password: '',
     });
+
+    const [
+		createUserWithEmailAndPassword,
+		user,
+		loading,
+		error,
+	  ] = useCreateUserWithEmailAndPassword(auth);
+
   
     //Firebase Logic
-   const onSubmit = () => {};
+   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    signInwithEmailAndPassword(loginForm.email, loginForm.password);
+   };
 
    const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     // update form state
@@ -69,6 +83,9 @@ const Login:React.FC<LoginProps> = () => {
                     borderColor: 'yellow.400'
                 }}
             />
+            <Text>
+                {FIREBASE_ERRORS[error?.message as keyof typeof FIREBASE_ERRORS]}
+            </Text>
             <Button width='100%' height='39px' mt={2} mb={2} type='submit'>
                 Log in
             </Button>
@@ -86,3 +103,7 @@ const Login:React.FC<LoginProps> = () => {
     )
 }
 export default Login;
+
+function signInwithEmailAndPassword(email: string, password: string) {
+    throw new Error('Function not implemented.');
+}

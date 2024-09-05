@@ -15,22 +15,25 @@ export const Button: ComponentStyleConfig = {
     },
     md: {
       fontSize: "10pt",
-      // height: "28px",
     },
   },
   variants: {
-    solid: {
+    solid: (props) => ({
       color: "white",
-      bg: "orange.100",
+      bg: props.colorMode === "dark" ? "brand.100" : "brand.100",
       _hover: {
-        bg: "blue.400",
+        bg: props.colorMode === "dark" ? "secondary.100" : "secondary.100",
       },
-    },
-    outline: {
-      color: "blue.500",
+    }),
+    outline: (props) => ({
+      color: props.colorMode === "dark" ? "brand.100" : "brand.100",
       border: "1px solid",
-      borderColor: "blue.500",
-    },
+      borderColor: props.colorMode === "dark" ? "brand.100" : "brand.100",
+      _hover: {
+        bg: props.colorMode === "dark" ? "accent.1" : "accent.2",
+        color: "white",
+      },
+    }),
     oauth: {
       height: "34px",
       border: "1px solid",
